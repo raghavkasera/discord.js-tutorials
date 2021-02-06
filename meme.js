@@ -1,8 +1,7 @@
 const got = require('got')
 const { MessageEmbed } = require('discord.js')
-module.exports = {
-    name : 'meme',
-    run : async(client, message) => {
+
+    module.exports.run = async(client, message, args) => {
         got('https://www.reddit.com/r/memes/random/.json').then(res => {
             let content = JSON.parse(res.body)
             message.channel.send(
@@ -14,4 +13,7 @@ module.exports = {
             )
         })
     }
-}
+
+    module.exports.help = {
+    name : 'meme'
+    }
